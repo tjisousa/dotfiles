@@ -1,3 +1,5 @@
 [user]
 	name = Tiago Sousa
 	email = tjisousa@gmail.com
+[core]
+	excludesfile = $HOME/.gitignore_global
