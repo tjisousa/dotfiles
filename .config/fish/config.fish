@@ -1,3 +1,6 @@
+# Load all saved ssh keys
+/usr/bin/ssh-add -A ^/dev/null
+
 # Set the emoji width for iTerm
 set -g fish_emoji_width 2
 
