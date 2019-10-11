@@ -1,0 +1,23 @@
+[conda]
+symbol = "🅒 "
+
+[directory]
+truncation_length = 1
+
+[git_branch]
+symbol = "🌱 "
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = "➕"
+renamed = "👅"
+deleted = "🗑"
+
+[line_break]
+disabled = false
