@@ -35,3 +35,6 @@ eval (starship init fish)
 
 # Brewfile location
 set -x HOMEBREW_BREWFILE ~/Brewfile
+
+# Miniconda3
+source /usr/local/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish
