@@ -17,7 +17,7 @@ mkdir ~/dev
 ~/bin/update
 
 echo "Installing fisher"
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fisher
 
 
