@@ -36,10 +36,3 @@ eval (starship init fish)
 
 # Miniconda
 set PATH ~/miniconda3/bin $PATH
-
-eval (starship init fish)
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /Users/tiagosousa/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-
