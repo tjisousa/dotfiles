@@ -32,3 +32,6 @@ set -g fish_color_valid_path --underline
 
 # Install Starship
 eval (starship init fish)
+
+# Brewfile location
+set -x HOMEBREW_BREWFILE ~/Brewfile
