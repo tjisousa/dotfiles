@@ -2,9 +2,6 @@
 
 cd ~
 
-echo "Decripting yadm"
-yadm decrypt
-
 echo "Installing fisher packages"
 fisher
 

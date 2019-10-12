@@ -8,8 +8,8 @@ echo "Installing dotfiles"
 yadm clone https://github.com/tjisousa/dotfiles.git
 
 echo "Installing fish"
-echo $(which fish) | sudo tee -a /etc/shells > /dev/null
-chsh -s $(which fish)
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish	
 
 echo "Making directories"
 mkdir ~/dev
@@ -20,6 +20,13 @@ echo "Installing fisher"
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fisher
 
-echo "Configuring macOS"
-~/bin/.macos
+
+# Ask if macOS applications should be installed
+read -p "Do you want to configure macOS? (yes/no) " mac_config
+echo
+if [ "$mac_config" == "yes" ]; then
+	~/bin/macos
+else
+	echo "Ok, macOS is not going to be configured."
+fi
 
