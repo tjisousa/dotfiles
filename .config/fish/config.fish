@@ -32,7 +32,3 @@ set -g fish_color_valid_path --underline
 
 # Install Starship
 eval (starship init fish)
-
-
-# Miniconda
-set PATH ~/miniconda3/bin $PATH
