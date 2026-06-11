@@ -72,7 +72,6 @@ $vlang\
 $vagrant\
 $zig\
 $buf\
-$conda\
 $pixi\
 $meson\
 $spack\
@@ -149,6 +148,7 @@ utc_time_offset = "local"
 style = "italic dimmed white"
 
 [battery]
+disabled = true
 format = "[ $percentage $symbol]($style)"
 full_symbol = "█"
 charging_symbol = "[↑](italic bold green)"
@@ -263,11 +263,6 @@ format = " [$symbol($version(-$name))]($style)"
 symbol = "ℂ "
 format = " [$symbol($version(-$name))]($style)"
 
-[conda]
-disabled = true
-symbol = "◯ "
-format = " conda [$symbol$environment]($style)"
-
 [pixi]
 symbol = "■ "
 format = " pixi [$symbol$version ($environment )]($style)"
@@ -323,4 +318,3 @@ unknown_msg = '[◌](bold dimmed yellow)'
 [spack]
 symbol = "◇ "
 format = " spack [$symbol$environment]($style)"
-
