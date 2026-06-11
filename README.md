@@ -43,6 +43,8 @@ Install the base setup:
 
 `bootstrap.sh` installs Homebrew if missing, runs `brew bundle`, and symlinks files from `home/` into your real home directory. Existing files are moved into `~/.dotfiles-backup/<timestamp>` before replacement. `link.sh` also supports `--only` and `--skip` filters for partial restores.
 
+Bootstrap requests administrator access once at the start and refreshes the sudo timestamp while it runs, so Homebrew and cask installs should not repeatedly ask for your password. It does not make any permanent sudoers changes.
+
 Run optional setup pieces as needed:
 
 ```sh
