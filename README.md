@@ -6,7 +6,7 @@ This repo captures:
 
 - Homebrew taps, formulae, casks, and fonts in `Brewfile`
 - zsh, Starship, Git, Ghostty, SSH includes, GitHub CLI, OpenCode, and Mole config
-- Cursor settings, MCP/hooks config, custom commands, plugin inventory, and extension reinstall script
+- Cursor settings, MCP/hooks config, custom commands, and plugin inventory
 - Raycast selected defaults and installed extension inventory
 - macOS defaults sampled from this machine
 - language tooling with `uv` only for Python
@@ -20,7 +20,7 @@ It deliberately excludes:
 
 ## Use On A New Mac
 
-Review first:
+Review what will be installed and linked:
 
 ```sh
 less Brewfile
@@ -34,20 +34,24 @@ Preview the dotfile links:
 ./scripts/link.sh --dry-run
 ```
 
-Then run the pieces you want:
+Install the base setup:
 
 ```sh
 ./scripts/bootstrap.sh
 ./scripts/doctor.sh
+```
+
+`bootstrap.sh` installs Homebrew if missing, runs `brew bundle`, and symlinks files from `home/` into your real home directory. Existing files are moved into `~/.dotfiles-backup/<timestamp>` before replacement. `link.sh` also supports `--only` and `--skip` filters for partial restores.
+
+Run optional setup pieces as needed:
+
+```sh
 ./scripts/languages.sh
-./scripts/cursor-extensions.sh
 ./scripts/cursor-config.sh
 ./scripts/app-store-apps.sh --dry-run
 ./scripts/macos-defaults.sh
 ./scripts/raycast-defaults.sh
 ```
-
-`bootstrap.sh` installs Homebrew if missing, runs `brew bundle`, and symlinks files from `home/` into your real home directory. It backs up existing files before replacing them. `link.sh` also supports `--only` and `--skip` filters for partial restores.
 
 `cursor-config.sh` writes `~/.cursor/mcp.json` and `~/.cursor/hooks.json` from safe local checks. It includes `context7` and writes empty hooks when the Superset hook is not present.
 
@@ -61,7 +65,7 @@ Refresh safe inventory snapshots with:
 ./scripts/snapshot.sh --all
 ```
 
-The snapshot script is whitelist-based. It refreshes Homebrew, Cursor extension install commands, Raycast extension inventory, selected defaults, and App Store inventory, but does not copy auth databases, keychains, tokens, SSH keys, Cursor workspace/global storage, or Raycast encrypted state.
+The snapshot script is whitelist-based. It refreshes Homebrew, Raycast extension inventory, selected defaults, and App Store inventory, but does not copy auth databases, keychains, tokens, SSH keys, Cursor workspace/global storage, or Raycast encrypted state.
 
 ## Current Oracle
 

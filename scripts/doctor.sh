@@ -184,39 +184,12 @@ check_link_health() {
 }
 
 check_cursor() {
-  local desired_extensions=(
-    bradlc.vscode-tailwindcss
-    james-yu.latex-workshop
-    lucien-martijn.parquet-visualizer
-    oxc.oxc-vscode
-    pierrecomputer.pierre-theme
-    repreng.csv
-    rust-lang.rust-analyzer
-    webpro.vscode-knip
-    yoavbls.pretty-ts-errors
-  )
-
   if ! has_command cursor; then
     warn "Cursor CLI is missing; skipping Cursor checks"
     return
   fi
 
-  local installed_extensions
-  installed_extensions="$(cursor --list-extensions 2>/dev/null || true)"
-
-  local missing_extensions=0
-  local extension
-  for extension in "${desired_extensions[@]}"; do
-    if grep -Fxq "$extension" <<<"$installed_extensions"; then
-      ok "Cursor extension installed: $extension"
-    else
-      missing_extensions=$((missing_extensions + 1))
-    fi
-  done
-
-  if [[ "$missing_extensions" -gt 0 ]]; then
-    warn "Cursor extensions missing: $missing_extensions; run ./scripts/cursor-extensions.sh"
-  fi
+  ok "Cursor CLI is available"
 
   if [[ -x "$HOME/.superset/hooks/cursor-hook.sh" ]]; then
     ok "Superset Cursor hook is executable"

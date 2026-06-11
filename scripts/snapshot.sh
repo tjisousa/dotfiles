@@ -3,7 +3,6 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RUN_BREW=false
-RUN_CURSOR=false
 RUN_RAYCAST=false
 RUN_MACOS=false
 RUN_APP_STORE=false
@@ -17,7 +16,6 @@ Refresh safe, whitelisted machine inventory in this repo.
 Options:
   --all                 Refresh every supported inventory. Default when no options are passed.
   --brew                Refresh Brewfile from Homebrew.
-  --cursor              Refresh scripts/cursor-extensions.sh from installed Cursor extensions.
   --raycast             Refresh docs/raycast-extensions.generated.txt.
   --macos-defaults      Refresh docs/macos-defaults.generated.md.
   --app-store           Refresh docs/app-store-apps.generated.txt from mas.
@@ -30,7 +28,6 @@ EOF
 
 if [[ $# -eq 0 ]]; then
   RUN_BREW=true
-  RUN_CURSOR=true
   RUN_RAYCAST=true
   RUN_MACOS=true
   RUN_APP_STORE=true
@@ -40,7 +37,6 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --all)
       RUN_BREW=true
-      RUN_CURSOR=true
       RUN_RAYCAST=true
       RUN_MACOS=true
       RUN_APP_STORE=true
@@ -48,10 +44,6 @@ while [[ $# -gt 0 ]]; do
       ;;
     --brew)
       RUN_BREW=true
-      shift
-      ;;
-    --cursor)
-      RUN_CURSOR=true
       shift
       ;;
     --raycast)
@@ -116,46 +108,6 @@ ensure_brewfile_entry() {
     printf '\n%s\n' "$entry" >>"$ROOT_DIR/Brewfile"
     echo "Preserved Brewfile entry: $entry"
   fi
-}
-
-snapshot_cursor_extensions() {
-  if ! has_command cursor; then
-    echo "Skipping Cursor extensions: cursor CLI is missing" >&2
-    return
-  fi
-
-  local temp_file
-  temp_file="$(mktemp)"
-
-  {
-    cat <<'EOF'
-#!/usr/bin/env bash
-set -euo pipefail
-
-if ! command -v cursor >/dev/null 2>&1; then
-  echo "Cursor CLI is missing. Install Cursor from Brewfile first." >&2
-  exit 1
-fi
-
-extensions=(
-EOF
-    cursor --list-extensions | sort -f | while IFS= read -r extension; do
-      [[ -n "$extension" ]] || continue
-      printf '  %s\n' "$extension"
-    done
-    cat <<'EOF'
-)
-
-for extension in "${extensions[@]}"; do
-  cursor --install-extension "$extension"
-done
-
-"$(dirname "$0")/cursor-config.sh"
-EOF
-  } >"$temp_file"
-
-  write_if_changed "$ROOT_DIR/scripts/cursor-extensions.sh" "$temp_file"
-  chmod +x "$ROOT_DIR/scripts/cursor-extensions.sh"
 }
 
 snapshot_raycast_extensions() {
@@ -273,10 +225,6 @@ snapshot_app_store() {
 
 if [[ "$RUN_BREW" == true ]]; then
   snapshot_brew
-fi
-
-if [[ "$RUN_CURSOR" == true ]]; then
-  snapshot_cursor_extensions
 fi
 
 if [[ "$RUN_RAYCAST" == true ]]; then

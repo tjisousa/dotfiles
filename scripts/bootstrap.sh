@@ -25,7 +25,6 @@ Base setup complete.
 Optional next steps:
   ./scripts/doctor.sh
   ./scripts/languages.sh
-  ./scripts/cursor-extensions.sh
   ./scripts/cursor-config.sh
   ./scripts/app-store-apps.sh --dry-run
   ./scripts/macos-defaults.sh
