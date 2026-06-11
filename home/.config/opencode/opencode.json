@@ -9,15 +9,6 @@
         "--dev-only"
       ],
       "enabled": true
-    },
-    "pencil": {
-      "command": [
-        "/bin/zsh",
-        "-lc",
-        "exec \"$HOME/.cursor/extensions/highagency.pencildev-0.6.30-universal/out/mcp-server-darwin-arm64\" --app cursor"
-      ],
-      "enabled": true,
-      "type": "local"
     }
   },
   "$schema": "https://opencode.ai/config.json",
@@ -25,4 +16,3 @@
     "question": "allow"
   }
 }
-

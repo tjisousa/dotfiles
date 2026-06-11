@@ -86,3 +86,8 @@ https://www.raycast.com/pablopunk/yafw
 https://www.raycast.com/luisFilipePT/shadcn-ui
 ```
 
+To refresh a simple generated extension inventory from the current Mac:
+
+```sh
+./scripts/snapshot.sh --raycast
+```

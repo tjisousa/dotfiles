@@ -4,12 +4,13 @@ Captured from this Mac:
 
 - `~/Library/Application Support/Cursor/User/settings.json`
 - `~/.cursor/argv.json`
-- `~/.cursor/mcp.json`
-- `~/.cursor/hooks.json`
+- `~/.cursor/mcp.json.template`
+- `~/.cursor/hooks.json.template`
 - `~/.cursor/commands/*.md`
 - `~/.cursor/plugins/*.json`
 - `~/.cursor/skills-cursor/.cursor-managed-skills-manifest.json`
 - Extension reinstall script: `scripts/cursor-extensions.sh`
+- Local MCP/hooks generator: `scripts/cursor-config.sh`
 
 Excluded:
 
@@ -53,7 +54,12 @@ The script installs by extension ID, so it will usually pull current versions. P
 The oracle has:
 
 - `context7` remote MCP
-- `pencil` local MCP via Cursor extension path
 - Superset hooks under `~/.superset/hooks/cursor-hook.sh`
 
-The local `pencil` server depends on the `highagency.pencildev` Cursor extension existing at the expected path. If that extension is missing on a new Mac, install it in Cursor before relying on this MCP entry.
+Run:
+
+```sh
+./scripts/cursor-config.sh
+```
+
+The generator writes real `~/.cursor/mcp.json` and `~/.cursor/hooks.json` files after checking local dependencies. It always includes `context7` and writes empty hooks when the Superset hook is unavailable.

@@ -28,17 +28,40 @@ less scripts/bootstrap.sh
 less scripts/link.sh
 ```
 
+Preview the dotfile links:
+
+```sh
+./scripts/link.sh --dry-run
+```
+
 Then run the pieces you want:
 
 ```sh
 ./scripts/bootstrap.sh
+./scripts/doctor.sh
 ./scripts/languages.sh
 ./scripts/cursor-extensions.sh
+./scripts/cursor-config.sh
+./scripts/app-store-apps.sh --dry-run
 ./scripts/macos-defaults.sh
 ./scripts/raycast-defaults.sh
 ```
 
-`bootstrap.sh` installs Homebrew if missing, runs `brew bundle`, and symlinks files from `home/` into your real home directory. It backs up existing files before replacing them.
+`bootstrap.sh` installs Homebrew if missing, runs `brew bundle`, and symlinks files from `home/` into your real home directory. It backs up existing files before replacing them. `link.sh` also supports `--only` and `--skip` filters for partial restores.
+
+`cursor-config.sh` writes `~/.cursor/mcp.json` and `~/.cursor/hooks.json` from safe local checks. It includes `context7` and writes empty hooks when the Superset hook is not present.
+
+`app-store-apps.sh` uses `mas` to install personal Apple App Store apps. Run it without `--dry-run` after signing into the Mac App Store.
+
+## Refresh From This Mac
+
+Refresh safe inventory snapshots with:
+
+```sh
+./scripts/snapshot.sh --all
+```
+
+The snapshot script is whitelist-based. It refreshes Homebrew, Cursor extension install commands, Raycast extension inventory, selected defaults, and App Store inventory, but does not copy auth databases, keychains, tokens, SSH keys, Cursor workspace/global storage, or Raycast encrypted state.
 
 ## Current Oracle
 

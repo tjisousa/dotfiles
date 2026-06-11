@@ -4,6 +4,14 @@
 
 These apps are present in `/Applications` but were not installed as Homebrew casks on the oracle machine. They may come from the App Store, MDM/Jamf, direct downloads, vendor installers, or licenses that should be handled manually.
 
+Homebrew also installs `mas`, so personal App Store apps can be restored with:
+
+```sh
+./scripts/app-store-apps.sh --dry-run
+```
+
+Run without `--dry-run` after signing into the Mac App Store. The script intentionally includes Apple personal apps only and leaves work-managed Microsoft, MDM, and vendor apps manual.
+
 | App | Notes |
 | --- | --- |
 | Authen.app | direct or vendor-managed |
@@ -38,4 +46,3 @@ These apps are present in `/Applications` but were not installed as Homebrew cas
 | iMovie.app | App Store/Apple |
 
 Do not add work-managed apps to `Brewfile` unless you explicitly want Homebrew to own them on personal machines.
-

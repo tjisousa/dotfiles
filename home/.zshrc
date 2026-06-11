@@ -24,7 +24,10 @@ if command -v fnm >/dev/null 2>&1; then
   export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
   export FNM_COREPACK_ENABLED="false"
   export FNM_RESOLVE_ENGINES="true"
-  export FNM_ARCH="arm64"
+  case "$(uname -m)" in
+    arm64) export FNM_ARCH="arm64" ;;
+    x86_64) export FNM_ARCH="x64" ;;
+  esac
 fi
 
 # pnpm
@@ -77,4 +80,3 @@ case ":$PATH:" in
   *) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 # <<< ara cli (managed by Ara Desktop) <<<
-

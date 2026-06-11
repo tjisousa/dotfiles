@@ -14,6 +14,8 @@ home/.config/zotero-mcp/
 home/.cursor/ai-tracking/
 home/.cursor/plans/
 home/.cursor/snapshots/
+home/.cursor/hooks.json
+home/.cursor/mcp.json
 home/Library/Application Support/Cursor/User/History/
 home/Library/Application Support/Cursor/User/globalStorage/
 home/Library/Application Support/Cursor/User/workspaceStorage/
@@ -21,4 +23,3 @@ home/Library/Application Support/Cursor/User/workspaceStorage/
 # Raycast local/encrypted state.
 home/.config/raycast/extensions/
 home/Library/Application Support/com.raycast.macos/
-

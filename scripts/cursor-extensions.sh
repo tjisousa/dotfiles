@@ -22,3 +22,4 @@ for extension in "${extensions[@]}"; do
   cursor --install-extension "$extension"
 done
 
+"$(dirname "$0")/cursor-config.sh"

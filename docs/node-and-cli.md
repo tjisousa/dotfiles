@@ -17,14 +17,16 @@ Global npm packages:
 
 Global pnpm packages:
 
-- `@cubic-dev-ai/cli@^0.5.0`
-- `degit@^2.8.4`
-- `turbo@^2.5.8`
-- `vibe-rules@^0.3.91`
+- `@cubic-dev-ai/cli@0.5.0`
+- `degit@2.8.4`
+- `turbo@2.5.8`
+- `vibe-rules@0.3.91`
 
 Global Bun package:
 
-- `ralph-tui@^0.7.0`
+- `ralph-tui@0.7.0`
+
+Global `uv` tools are installed by package name because their exact initial versions were not captured in the first oracle snapshot. Pin them in `scripts/languages.sh` when exact versions or commits are known.
 
 Recreate with:
 
