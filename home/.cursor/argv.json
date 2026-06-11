@@ -1,0 +1,5 @@
+// This configuration file allows you to pass permanent command line arguments to Cursor.
+{
+	"enable-crash-reporter": true
+}
+

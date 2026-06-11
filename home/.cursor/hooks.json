@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [
+      {
+        "command": "$HOME/.superset/hooks/cursor-hook.sh Start"
+      }
+    ],
+    "stop": [
+      {
+        "command": "$HOME/.superset/hooks/cursor-hook.sh Stop"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "$HOME/.superset/hooks/cursor-hook.sh PermissionRequest"
+      }
+    ],
+    "beforeMCPExecution": [
+      {
+        "command": "$HOME/.superset/hooks/cursor-hook.sh PermissionRequest"
+      }
+    ]
+  }
+}
+

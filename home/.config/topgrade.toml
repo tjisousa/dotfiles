@@ -1,0 +1,17 @@
+[include]
+
+[misc]
+
+[pre_commands]
+
+[post_commands]
+
+[commands]
+
+[brew]
+
+[git]
+
+[python]
+# Python tooling is intentionally managed with uv, not Conda/Miniconda/Mamba.
+

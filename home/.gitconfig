@@ -1,0 +1,7 @@
+[user]
+	email = tjisousa@gmail.com
+	name = Tiago Sousa
+
+[core]
+	excludesfile = ~/.config/git/ignore
+

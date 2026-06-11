@@ -1,0 +1,24 @@
+.DS_Store
+*.local
+*.backup
+*.bak
+*.tmp
+
+# Secrets and auth state should be recreated per machine.
+home/.npmrc
+home/.config/gh/hosts.yml
+home/.config/stripe/
+home/.config/zotero-mcp/
+
+# Cursor local state.
+home/.cursor/ai-tracking/
+home/.cursor/plans/
+home/.cursor/snapshots/
+home/Library/Application Support/Cursor/User/History/
+home/Library/Application Support/Cursor/User/globalStorage/
+home/Library/Application Support/Cursor/User/workspaceStorage/
+
+# Raycast local/encrypted state.
+home/.config/raycast/extensions/
+home/Library/Application Support/com.raycast.macos/
+

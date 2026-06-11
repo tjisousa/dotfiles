@@ -1,0 +1,15 @@
+{
+  "workbench.colorTheme": "Pierre Dark Soft",
+  "workbench.activityBar.orientation": "vertical",
+  "editor.experimentalEditContextEnabled": true,
+  "git.autofetch": true,
+  "latex-workshop.latex.autoBuild.interval": 1500,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "git.confirmSync": false,
+  "window.autoDetectColorScheme": false,
+  "workbench.agentsWindowButton.enabled": false,
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.experimental.useTrueInlineView": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": false
+}

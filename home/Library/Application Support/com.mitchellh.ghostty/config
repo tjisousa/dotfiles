@@ -1,0 +1,5 @@
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+keybind = shift+enter=text:\x1b\r
+
+bell-features = border
+

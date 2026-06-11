@@ -1,0 +1,32 @@
+{
+  "claude-plugins-official": {
+    "repo": "anthropics/claude-plugins-official",
+    "branch": "main"
+  },
+  "claude-hud": {
+    "repo": "jarrodwatts/claude-hud",
+    "branch": "main",
+    "source": "github"
+  },
+  "every-marketplace": {
+    "repo": "https://github.com/EveryInc/compound-engineering-plugin.git",
+    "branch": "main",
+    "source": "url"
+  },
+  "agent-browser": {
+    "repo": "https://github.com/vercel-labs/agent-browser.git",
+    "branch": "main",
+    "source": "url"
+  },
+  "lisa": {
+    "repo": "blencorp/lisa",
+    "branch": "main",
+    "source": "github"
+  },
+  "Mixedbread-Grep": {
+    "repo": "mixedbread-ai/mgrep",
+    "branch": "main",
+    "source": "github"
+  }
+}
+
